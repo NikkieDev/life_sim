@@ -52,7 +52,23 @@ int main()
 
     if (userChoice == options[0] || userChoice == "1")
     {
-        saveObj.checkSave();
+        bool saveCheck = saveObj.checkSave();
+
+        if (saveCheck == false)
+            system("exit");
+        else system("exit");
+    } else if (userChoice == options[1] || userChoice == "2")
+    {
+        
+    } else if (userChoice == options[2] || userChoice == "3")
+    {
+
+    } else if (userChoice == options[3] || userChoice == "4")
+    {
+
+    } else
+    {
+        main();   
     }
 
     return 0;
