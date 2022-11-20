@@ -61,5 +61,15 @@ void saveGame::save(saveData toSave)
 
 saveGame::saveData saveGame::getSave()
 {
-    std::fstream fileR(saveGame::fileName, std::ios_base::out)
+    std::fstream fileR(saveGame::fileName, std::ios_base::out);
+    saveData toRetrieve;
+
+    if (!fileR.good() || !fileR.is_open())
+        system("exit");
+    else
+    {
+        fileR.read((char *) &toRetrieve, sizeof(saveData));
+    }
+
+    return toRetrieve;
 }

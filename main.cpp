@@ -59,13 +59,17 @@ int main()
         else system("exit");
     } else if (userChoice == options[1] || userChoice == "2")
     {
-        
+
     } else if (userChoice == options[2] || userChoice == "3")
     {
 
     } else if (userChoice == options[3] || userChoice == "4")
     {
 
+    } else if (userChoice == "debug") 
+    {
+        saveGame::saveData data = saveObj.getSave();
+        std::cout<<data.userName;
     } else
     {
         main();   
