@@ -2,8 +2,10 @@
 #include <fstream>
 #include <thread>
 #include <string>
-
 #include "headers/save.h"
+#include "headers/converter.h"
+
+// using json = nlohmann::json;
 
 bool saveGame::checkSave()
 {
@@ -50,10 +52,9 @@ void saveGame::save(saveData toSave)
         system("exit");
     } else
     {
-        fileW.write((char *) &toSave, sizeof(saveData));
+        std::string dataString = ConvertClass::saveToString(toSave);
         fileW.close();
     }
-    return;
 }
 
 saveGame::saveData saveGame::getSave()

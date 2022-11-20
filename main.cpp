@@ -68,8 +68,7 @@ int main()
 
     } else if (userChoice == "debug") 
     {
-        saveGame::saveData data = saveObj.getSave();
-        saveGame::saveData newData{.userName = data.userName, .hunger = data.hunger, .health = data.health, .money = data.money, .inventory = data.inventory};
+        
     } else
     {
         main();   
