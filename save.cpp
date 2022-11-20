@@ -17,9 +17,9 @@ bool saveGame::checkSave()
     } else
     {
         fileState = true;
+        fileR.close();
     }
 
-    fileR.close();
     return fileState;
 }
 
@@ -47,10 +47,7 @@ void saveGame::save(saveData toSave)
 
     if (!fileW.good() || !fileW.is_open())
     {
-        std::ofstream backupSave(saveGame::fileName + ".backup.nddat", std::ios_base::out);
-
-        backupSave.write((char *) &toSave, sizeof(saveData));
-        backupSave.close();
+        system("exit");
     } else
     {
         fileW.write((char *) &toSave, sizeof(saveData));
@@ -61,7 +58,7 @@ void saveGame::save(saveData toSave)
 
 saveGame::saveData saveGame::getSave()
 {
-    std::fstream fileR(saveGame::fileName, std::ios_base::out);
+    std::fstream fileR(saveGame::fileName, std::ios_base::in);
     saveData toRetrieve;
 
     if (!fileR.good() || !fileR.is_open())

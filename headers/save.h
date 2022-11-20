@@ -7,12 +7,12 @@ class saveGame
 {
     private:
         std::string fileName{"./save.nddat"};
+    public:
         struct inventoryItem
         {
             std::string itemName;
             bool unlocked{false};
         };
-    public:
         struct saveData
         {
             std::string userName{"John"};
