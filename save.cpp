@@ -50,7 +50,7 @@ void saveGame::save(saveTypes::saveData toSave)
     } else
     {
         json jsonData = ConvertClass::saveToJSON(toSave);
-        fileW << std::setw(4) << jsonData << std::endl;
+        fileW << jsonData << std::endl;
         fileW.close();
     }
 }
@@ -58,14 +58,16 @@ void saveGame::save(saveTypes::saveData toSave)
 saveTypes::saveData saveGame::getSave()
 {
     std::fstream fileR(saveGame::fileName, std::ios_base::in);
-    saveTypes::saveData toRetrieve;
+    saveTypes::saveData loaded;
+    json jsonParsed;
 
     if (!fileR.good() || !fileR.is_open())
         system("exit");
     else
     {
-        // toRetrieve = ConvertClass::jsonToSave();
+        jsonParsed = json::parse(fileR);
+        loaded = ConvertClass::jsonToSave(jsonParsed);
     }
 
-    return toRetrieve;
+    return loaded;
 }

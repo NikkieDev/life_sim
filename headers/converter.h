@@ -6,5 +6,5 @@ class ConvertClass
 {
     public:
         static json saveToJSON(saveTypes::saveData toConvert);
-        static saveTypes::saveData jsonToSave(json value);
+        static saveTypes::saveData jsonToSave(json loadedData);
 };
