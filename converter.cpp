@@ -2,7 +2,7 @@
 
 std::string ConvertClass::saveToString(saveTypes::saveData toConvert)
 {
-    std::string stringObject;
-    
+    std::string stringObject = "userName" <<;
+
     return stringObject;
 }
