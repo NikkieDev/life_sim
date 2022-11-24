@@ -49,7 +49,8 @@ void saveGame::save(saveTypes::saveData toSave)
         system("exit");
     } else
     {
-        std::string dataString = ConvertClass::saveToString(toSave);
+        json jsonData = ConvertClass::saveToJSON(toSave);
+        fileW << std::setw(4) << jsonData << std::endl;
         fileW.close();
     }
 }
@@ -63,7 +64,7 @@ saveTypes::saveData saveGame::getSave()
         system("exit");
     else
     {
-        fileR.read((char *) &toRetrieve, sizeof(saveTypes::saveData));
+        // toRetrieve = ConvertClass::jsonToSave();
     }
 
     return toRetrieve;

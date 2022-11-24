@@ -1,6 +1,6 @@
 #include "headers/converter.h"
 
-json ConvertClass::saveToString(saveTypes::saveData toConvert)
+json ConvertClass::saveToJSON(saveTypes::saveData toConvert)
 {
     json j;
 
@@ -9,10 +9,10 @@ json ConvertClass::saveToString(saveTypes::saveData toConvert)
     j["health"] = toConvert.health;
     j["money"] = toConvert.money;
 
-    for (int i = 0; i < sizeof(toConvert.inventory) / sizeof(toConvert.inventory[1]); i++)
-    {
-        j["inventory"]["items"][toConvert.inventory[i].itemName].push_back(toConvert.inventory[i].unlocked);
-    }
+    // for (int i = 0; i < sizeof(toConvert.inventory) / sizeof(toConvert.inventory[1]); i++)
+    // {
+    //     j["inventory"]["items"].push_back({toConvert.inventory[i].itemName: toConvert.inventory[i].unlocked});
+    // }
 
     return j;
 }
