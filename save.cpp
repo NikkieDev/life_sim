@@ -3,7 +3,6 @@
 #include <thread>
 #include <string>
 #include "headers/converter.h"
-// using json = nlohmann::json;
 
 bool saveGame::checkSave()
 {
