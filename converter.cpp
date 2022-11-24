@@ -24,6 +24,12 @@ saveTypes::saveData ConvertClass::jsonToSave(json loadedData)
     loadSave.hunger = loadedData["hunger"];
     loadSave.health = loadedData["health"];
     loadSave.money = loadedData["money"];
+
+    for (auto item:loadedData["inventory"]["items"])
+    {
+        saveTypes::inventoryItem processedItem;
+        loadSave.inventory.push_back(processedItem);
+    }
     
     return loadSave;
 }
