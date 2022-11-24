@@ -2,9 +2,7 @@
 #include <fstream>
 #include <thread>
 #include <string>
-#include "headers/save.h"
 #include "headers/converter.h"
-
 // using json = nlohmann::json;
 
 bool saveGame::checkSave()
@@ -27,8 +25,8 @@ bool saveGame::checkSave()
 
 void saveGame::createSave()
 {
-    saveData saveObj;
-    inventoryItem newItem;
+    saveTypes::saveData saveObj;
+    saveTypes::inventoryItem newItem;
 
     newItem.itemName = "shoes";
     newItem.unlocked = true;
@@ -43,7 +41,7 @@ void saveGame::createSave()
     return;
 }
 
-void saveGame::save(saveData toSave)
+void saveGame::save(saveTypes::saveData toSave)
 {
     std::fstream fileW(saveGame::fileName, std::ios_base::out);
 
@@ -57,16 +55,16 @@ void saveGame::save(saveData toSave)
     }
 }
 
-saveGame::saveData saveGame::getSave()
+saveTypes::saveData saveGame::getSave()
 {
     std::fstream fileR(saveGame::fileName, std::ios_base::in);
-    saveData toRetrieve;
+    saveTypes::saveData toRetrieve;
 
     if (!fileR.good() || !fileR.is_open())
         system("exit");
     else
     {
-        fileR.read((char *) &toRetrieve, sizeof(saveData));
+        fileR.read((char *) &toRetrieve, sizeof(saveTypes::saveData));
     }
 
     return toRetrieve;
