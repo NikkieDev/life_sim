@@ -11,7 +11,7 @@ json ConvertClass::saveToString(saveTypes::saveData toConvert)
 
     for (int i = 0; i < sizeof(toConvert.inventory) / sizeof(toConvert.inventory[1]); i++)
     {
-        j["inventory"][toConvert.inventory[i].itemName].push_back(toConvert.inventory[i].unlocked);
+        j["inventory"]["items"][toConvert.inventory[i].itemName].push_back(toConvert.inventory[i].unlocked);
     }
 
     return j;

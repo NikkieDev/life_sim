@@ -5,10 +5,15 @@
 class saveTypes
 {
     public:
-    struct inventoryItem
+        struct inventoryItem
         {
             std::string itemName;
             bool unlocked{false};
+        };
+        struct Pet
+        {
+            std::string petName;
+            // boost??
         };
         struct saveData
         {
