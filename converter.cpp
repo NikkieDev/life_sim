@@ -1,8 +1,18 @@
 #include "headers/converter.h"
 
-std::string ConvertClass::saveToString(saveTypes::saveData toConvert)
+json ConvertClass::saveToString(saveTypes::saveData toConvert)
 {
-    std::string stringObject = "userName" <<;
+    json j;
 
-    return stringObject;
+    j["name"] = toConvert.name;
+    j["hunger"] = toConvert.hunger;
+    j["health"] = toConvert.health;
+    j["money"] = toConvert.money;
+
+    for (int i = 0; i < sizeof(toConvert.inventory) / sizeof(toConvert.inventory[1]); i++)
+    {
+        j["inventory"][toConvert.inventory[i].itemName].push_back(toConvert.inventory[i].unlocked);
+    }
+
+    return j;
 }

@@ -12,7 +12,7 @@ class saveTypes
         };
         struct saveData
         {
-            std::string userName{"John"};
+            std::string name{"John"};
             int hunger{100};
             int health{100};
             int money{5};

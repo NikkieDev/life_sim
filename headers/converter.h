@@ -5,5 +5,5 @@
 class ConvertClass
 {
     public:
-        static std::string saveToString(saveTypes::saveData toConvert);
+        static json saveToString(saveTypes::saveData toConvert);
 };
