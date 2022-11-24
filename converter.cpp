@@ -28,6 +28,9 @@ saveTypes::saveData ConvertClass::jsonToSave(json loadedData)
     for (auto item:loadedData["inventory"]["items"])
     {
         saveTypes::inventoryItem processedItem;
+        processedItem.itemName = loadedData["inventory"]["items"][item].itemName;
+        processedItem.unlocked = loadedData["inventory"]["items"][item].unlocked;
+
         loadSave.inventory.push_back(processedItem);
     }
     
