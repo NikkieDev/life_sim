@@ -1,13 +1,12 @@
-##### Pets - 
+##### -- Pets --
 * rock
 * dog
 * unicorn
--
 
-##### Goal -
+##### -- Goal --
 * Windows game (C++, GUI)
 * Android port (C++, GUI)
 * Unix port (C++, GUI)
--
+
 
 ###### NikkieDev Software
