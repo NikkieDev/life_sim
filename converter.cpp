@@ -33,9 +33,17 @@ saveTypes::saveData ConvertClass::jsonToSave(json loadedData)
         saveTypes::inventoryItem processedItem;
         processedItem.itemName = item["item"].get<std::string>();
         processedItem.unlocked = item["unlocked"].get<bool>();
+        
+        loadSave.inventory.push_back(processedItem);
+    }
+    for (auto pet:loadedData["inventory"]["pets"])
+    {
+        saveTypes::Pet processedPet;
+        processedPet.petName = pet["pet"];
+        processedPet.unlocked = pet["unlocked"];
+        processedPet.moneyMultiplier = pet["multiplier"];
 
-        std::cout<<"item: "<<processedItem.itemName<<std::endl;
-        std::cout<<"unlocked?: "<<processedItem.unlocked<<std::endl;
+        loadSave.petList.push_back(processedPet);
     }
     
     return loadSave;
