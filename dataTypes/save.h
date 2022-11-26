@@ -19,8 +19,8 @@ class saveTypes
         struct saveData
         {
             std::string name{"John"};
-            int hunger{100};
-            int health{100};
+            int hunger{300};
+            int health{300};
             float wallet{0};
             float bankAccount{0};
             std::vector<inventoryItem> inventory;

@@ -43,7 +43,6 @@ bool saveGame::checkSave()
     if (!fileR.good() || !fileR.is_open())
     {
         fileState = false;
-        this->newSave();
     } else
     {
         fileState = true;
@@ -53,9 +52,10 @@ bool saveGame::checkSave()
     return fileState;
 }
 
-void saveGame::newSave()
+void saveGame::newSave(std::string name)
 {
     saveTypes::saveData saveObj;
+    saveObj.name = name;
 
     saveObj = this->initializeItems(saveObj);
     saveObj = this->initializePets(saveObj);

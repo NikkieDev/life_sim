@@ -46,6 +46,7 @@ int main()
     system("cls");
     mainClass mainObj;
     saveGame saveObj;
+    gameClass 
 
     std::string userChoice = mainObj.showMenu();
     std::vector<std::string> options = mainObj.getOptions();
@@ -53,25 +54,54 @@ int main()
     if (userChoice == options[0] || userChoice == "1")
     {
         bool saveCheck = saveObj.checkSave();
+        char userInput;
 
         if (saveCheck == false)
-            system("exit");
-        else system("exit");
+        {
+            std::cout<<"Seems like there's no save game available.\nWould you like to create one? (y/n): ";
+            std::cin>>userInput;
+
+            while (userInput == "")
+            {
+                std::cout<<std::endl<<"(y/n)>> ";
+                std::cin>>userInput;
+            }
+
+            if (userInput == "y")
+            {
+                std::string name;
+
+                std::cout<<"What's your name?: ";
+                std::getline(std::cin, name);
+
+                saveObj.newSave(name);
+                game.start(saveObj.getSave());
+            } else {system("exit"); return 0;}
+        }
+
     } else if (userChoice == options[1] || userChoice == "2")
     {
+        std::string name;
 
+        std::cout<<"What's your name?: ";
+        std::getline(std::cin, name);
+
+        saveObj.newSave(name);
+        game.start(saveObj.getSave());
     } else if (userChoice == options[2] || userChoice == "3")
     {
 
     } else if (userChoice == options[3] || userChoice == "4")
     {
-
+        system("exit");
+        return 0;
     } else if (userChoice == "debug") 
     {
         saveTypes::saveData loaded = saveObj.getSave();
+        return 0;
     } else
     {
-        main();   
+        main(); 
     }
 
     return 0;

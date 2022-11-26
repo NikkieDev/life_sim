@@ -13,7 +13,7 @@ class saveGame
         std::string fileName{"./save.json"};
     public:
         bool checkSave();
-        void newSave();
+        void newSave(std::string name);
         void save(saveTypes::saveData toSave);
         saveTypes::saveData getSave();
         saveTypes::saveData initializeItems(saveTypes::saveData toAppend);
