@@ -69,16 +69,6 @@ int main()
     } else if (userChoice == "debug") 
     {
         saveTypes::saveData loaded = saveObj.getSave();
-        
-        std::cout<<"Name: "<<loaded.name<<std::endl;
-        std::cout<<"Hunger: "<<loaded.hunger<<std::endl;
-        std::cout<<"Health: "<<loaded.health<<std::endl;
-        std::cout<<"Money: "<<loaded.money<<std::endl;
-
-        // for (saveTypes::inventoryItem item:loaded.inventory)
-        // {
-        //     std::cout<<item.itemName<<": "<<item.unlocked<<std::endl;
-        // }
     } else
     {
         main();   

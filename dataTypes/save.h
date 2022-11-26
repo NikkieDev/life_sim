@@ -8,12 +8,12 @@ class saveTypes
         struct inventoryItem
         {
             std::string itemName;
-            bool unlocked;
+            bool unlocked{false};
         };
         struct Pet
         {
             std::string petName;
-            bool unlocked;
+            bool unlocked{false};
             float moneyMultiplier;
         };
         struct saveData
@@ -21,7 +21,9 @@ class saveTypes
             std::string name{"John"};
             int hunger{100};
             int health{100};
-            int money{5};
+            float wallet{0};
+            float bankAccount{0};
             std::vector<inventoryItem> inventory;
+            std::vector<Pet> petList;
         };
 };

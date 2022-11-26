@@ -4,19 +4,35 @@
 #include <string>
 #include "headers/converter.h"
 
-saveTypes::saveData initializeItems()
+saveTypes::saveData saveGame::initializeItems(saveTypes::saveData toAppend)
 {
     saveTypes::inventoryItem newItem;
 
     newItem.itemName = "shoes";
-    newItem.unlocked = true;
-    saveObj.inventory.push_back(newItem);
+    toAppend.inventory.push_back(newItem);
 
     newItem.itemName = "knife";
-    newItem.unlocked = false;
-    saveObj.inventory.push_back(newItem);
+    toAppend.inventory.push_back(newItem);
     
-    return saveObj;
+    return toAppend;
+}
+saveTypes::saveData saveGame::initializePets(saveTypes::saveData toAppend)
+{
+    saveTypes::Pet newPet;
+
+    newPet.petName = "rock";
+    newPet.moneyMultiplier = 1.50;
+    toAppend.petList.push_back(newPet);
+
+    newPet.petName = "dog";
+    newPet.moneyMultiplier = 1.25;
+    toAppend.petList.push_back(newPet);
+
+    newPet.petName = "unicorn";
+    newPet.moneyMultiplier = 2.50;
+    toAppend.petList.push_back(newPet);
+
+    return toAppend;
 }
 
 bool saveGame::checkSave()
@@ -27,7 +43,7 @@ bool saveGame::checkSave()
     if (!fileR.good() || !fileR.is_open())
     {
         fileState = false;
-        createSave();
+        this->checkSave();
     } else
     {
         fileState = true;
@@ -37,15 +53,13 @@ bool saveGame::checkSave()
     return fileState;
 }
 
-void saveGame::createSave()
+void saveGame::newSave()
 {
     saveTypes::saveData saveObj;
 
     this->initializeItems(saveObj);
     this->initializePets(saveObj);
 
-    // std::thread saveThis(save, saveObj);
-    // saveThis.join();
     save(saveObj);
     return;
 }

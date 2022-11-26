@@ -4,11 +4,13 @@ json ConvertClass::saveToJSON(saveTypes::saveData toConvert)
 {
     json j;
     std::vector<saveTypes::inventoryItem> inventory = toConvert.inventory;
+    std::vector<saveTypes::Pet> petList = toConvert.petList;
 
     j["name"] = toConvert.name;
     j["hunger"] = toConvert.hunger;
     j["health"] = toConvert.health;
-    j["money"] = toConvert.money;
+    j["wallet"] = toConvert.wallet;
+    j["bankAccount"] = toConvert.bankAccount;
 
     for (saveTypes::inventoryItem item:inventory)
         j["inventory"]["items"].push_back({{"item", item.itemName}, {"unlocked", item.unlocked}});
@@ -23,7 +25,8 @@ saveTypes::saveData ConvertClass::jsonToSave(json loadedData)
     loadSave.name = loadedData["name"];
     loadSave.hunger = loadedData["hunger"];
     loadSave.health = loadedData["health"];
-    loadSave.money = loadedData["money"];
+    loadSave.wallet = loadedData["wallet"];
+    loadSave.bankAccount = loadedData["bankAccount"];
 
     for (auto item:loadedData["inventory"]["items"])
     {
