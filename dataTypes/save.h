@@ -21,7 +21,7 @@ class saveTypes
             std::string name{"John"};
             int hunger{300};
             int health{300};
-            float wallet{0};
+            float wallet{5};
             float bankAccount{0};
             std::vector<inventoryItem> inventory;
             std::vector<Pet> petList;

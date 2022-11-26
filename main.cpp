@@ -3,8 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
 #include "headers/converter.h"
+#include "headers/game.h"
 
 class mainClass
 {

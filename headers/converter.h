@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdio.h>
 #include "./save.h"
-#include "./game.h"
 
 class ConvertClass
 {
