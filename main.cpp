@@ -46,7 +46,7 @@ int main()
     system("cls");
     mainClass mainObj;
     saveGame saveObj;
-    gameClass 
+    gameClass game;
 
     std::string userChoice = mainObj.showMenu();
     std::vector<std::string> options = mainObj.getOptions();
@@ -54,7 +54,7 @@ int main()
     if (userChoice == options[0] || userChoice == "1")
     {
         bool saveCheck = saveObj.checkSave();
-        char userInput;
+        std::string userInput;
 
         if (saveCheck == false)
         {
@@ -75,10 +75,11 @@ int main()
                 std::getline(std::cin, name);
 
                 saveObj.newSave(name);
-                game.start(saveObj.getSave());
+                game.start();
             } else {system("exit"); return 0;}
         }
-
+        else game.start();
+        
     } else if (userChoice == options[1] || userChoice == "2")
     {
         std::string name;
@@ -87,7 +88,7 @@ int main()
         std::getline(std::cin, name);
 
         saveObj.newSave(name);
-        game.start(saveObj.getSave());
+        game.start();
     } else if (userChoice == options[2] || userChoice == "3")
     {
 
