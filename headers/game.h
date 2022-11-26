@@ -4,9 +4,9 @@ class gameClass
 {
     private:
         menuClass menuObj;
+        playerClass playerObj
 
         bool running = true;
-        void idleMenu();
         void runGame();
     public:
         void start();

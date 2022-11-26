@@ -15,7 +15,8 @@ void menuClass::showHome()
     {
         std::cout<< std::setw(8) << "-- " << item << " --" << std::endl;
     }
-    
+    std::cout<<std::endl<<">> ";
+    return;
 }
 void menuClass::showWork()
 {
