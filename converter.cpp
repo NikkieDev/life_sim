@@ -11,9 +11,9 @@ json ConvertClass::saveToJSON(saveTypes::saveData toConvert)
     j["money"] = toConvert.money;
 
     for (saveTypes::inventoryItem item:inventory)
-    {
-        j["inventory"]["items"][item.itemName] = {{"unlocked", item.unlocked}};
-    }
+        j["inventory"]["items"].push_back({{"item", item.itemName}, {"unlocked", item.unlocked}});
+    for (saveTypes::Pet pet:petList)
+        j["inventory"]["pets"].push_back({{"pet", pet.petName}, {"unlocked", pet.unlocked}, {"multiplier", pet.moneyMultiplier}});
 
     return j;
 }
@@ -28,10 +28,11 @@ saveTypes::saveData ConvertClass::jsonToSave(json loadedData)
     for (auto item:loadedData["inventory"]["items"])
     {
         saveTypes::inventoryItem processedItem;
-        processedItem.itemName = loadedData["inventory"]["items"][item].itemName;
-        processedItem.unlocked = loadedData["inventory"]["items"][item].unlocked;
+        processedItem.itemName = item["item"].get<std::string>();
+        processedItem.unlocked = item["unlocked"].get<bool>();
 
-        loadSave.inventory.push_back(processedItem);
+        std::cout<<"item: "<<processedItem.itemName<<std::endl;
+        std::cout<<"unlocked?: "<<processedItem.unlocked<<std::endl;
     }
     
     return loadSave;

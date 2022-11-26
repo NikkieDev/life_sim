@@ -4,6 +4,21 @@
 #include <string>
 #include "headers/converter.h"
 
+saveTypes::saveData initializeItems()
+{
+    saveTypes::inventoryItem newItem;
+
+    newItem.itemName = "shoes";
+    newItem.unlocked = true;
+    saveObj.inventory.push_back(newItem);
+
+    newItem.itemName = "knife";
+    newItem.unlocked = false;
+    saveObj.inventory.push_back(newItem);
+    
+    return saveObj;
+}
+
 bool saveGame::checkSave()
 {
     bool fileState;
@@ -25,14 +40,9 @@ bool saveGame::checkSave()
 void saveGame::createSave()
 {
     saveTypes::saveData saveObj;
-    saveTypes::inventoryItem newItem;
 
-    newItem.itemName = "shoes";
-    newItem.unlocked = true;
-    saveObj.inventory.push_back(newItem);
-
-    newItem.itemName = "knife";
-    saveObj.inventory.push_back(newItem);
+    this->initializeItems(saveObj);
+    this->initializePets(saveObj);
 
     // std::thread saveThis(save, saveObj);
     // saveThis.join();

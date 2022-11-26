@@ -8,12 +8,13 @@ class saveTypes
         struct inventoryItem
         {
             std::string itemName;
-            bool unlocked{false};
+            bool unlocked;
         };
         struct Pet
         {
             std::string petName;
-            // boost??
+            bool unlocked;
+            float moneyMultiplier;
         };
         struct saveData
         {

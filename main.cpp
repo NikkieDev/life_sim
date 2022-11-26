@@ -70,10 +70,10 @@ int main()
     {
         saveTypes::saveData loaded = saveObj.getSave();
         
-        std::cout<<loaded.name<<std::endl;
-        std::cout<<loaded.hunger<<std::endl;
-        std::cout<<loaded.health<<std::endl;
-        std::cout<<loaded.money<<std::endl;
+        std::cout<<"Name: "<<loaded.name<<std::endl;
+        std::cout<<"Hunger: "<<loaded.hunger<<std::endl;
+        std::cout<<"Health: "<<loaded.health<<std::endl;
+        std::cout<<"Money: "<<loaded.money<<std::endl;
 
         // for (saveTypes::inventoryItem item:loaded.inventory)
         // {

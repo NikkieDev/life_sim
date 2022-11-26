@@ -11,6 +11,8 @@ class saveGame
 {
     private:
         std::string fileName{"./save.json"};
+        void initializeItems();
+        void initializePets();
     public:
         bool checkSave();
         void createSave();
