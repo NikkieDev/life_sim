@@ -16,6 +16,18 @@ class saveTypes
             bool unlocked{false};
             float moneyMultiplier;
         };
+        struct Skill
+        {
+            std::string skillName;
+            bool unlocked{false};
+        };
+        struct Job
+        {
+            std::string jobName;
+            float salary;
+            int intellectRequirement;
+            std::vector<std::string> skillsRequirement;
+        };
         struct saveData
         {
             std::string name{"John"};
@@ -23,6 +35,8 @@ class saveTypes
             int health{300};
             float wallet{5};
             float bankAccount{0};
+            Job employment;
+            std::vector<Job> jobList;
             std::vector<inventoryItem> inventory;
             std::vector<Pet> petList;
         };

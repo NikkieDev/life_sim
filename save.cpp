@@ -34,6 +34,35 @@ saveTypes::saveData saveGame::initializePets(saveTypes::saveData toAppend)
 
     return toAppend;
 }
+saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
+{
+    saveTypes::Job newJob;
+
+    newJob.jobName = "entrepreneur";
+    newJob.intellectRequirement = 80;
+    newJob.salary = 125;
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "programmer";
+    newJob.intellectRequirement = 125;
+    newJob.salary = 250;
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "garbage man";
+    newJob.intellectRequirement = 5;
+    newJob.salary = 25;
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "Dish washer";
+    newJob.intellectRequirement = 15;
+    newJob.salary = 50;
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "call center";
+    newJob.intellectRequirement = 30;
+    newJob.salary = 75;
+    toAppend.jobList.push_back(newJob)
+}
 
 bool saveGame::checkSave()
 {

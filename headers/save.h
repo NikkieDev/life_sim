@@ -18,4 +18,6 @@ class saveGame
         saveTypes::saveData getSave();
         saveTypes::saveData initializeItems(saveTypes::saveData toAppend);
         saveTypes::saveData initializePets(saveTypes::saveData toAppend);
+        saveTypes::saveData initializeJobs(saveTypes::saveData toAppend);
+        saveTypes::saveData initializeSkills(saveTypes::saveData toAppend);
 };
