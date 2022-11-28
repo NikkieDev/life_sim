@@ -27,6 +27,7 @@ class saveTypes
             float salary;
             int intellectRequirement;
             std::vector<Skill> skillsRequirement;
+            std::vector<inventoryItem> itemRequirement;
         };
         struct saveData
         {
@@ -39,5 +40,6 @@ class saveTypes
             std::vector<Job> jobList;
             std::vector<inventoryItem> inventory;
             std::vector<Pet> petList;
+            std::vector<Skill> skillList;
         };
 };

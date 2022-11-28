@@ -38,7 +38,13 @@ saveTypes::saveData saveGame::initializeSkills(saveTypes::saveData toAppend)
 {
     saveTypes::Skill newSkill;
 
-    
+    newSkill.skillName = "robbing";
+    toAppend.skillList.push_back(newSkill);
+
+    newSkill.skillName = "cooking";
+    toAppend.skillList.push_back(newSkill);
+
+    return toAppend;
 }
 saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
 {
@@ -47,20 +53,26 @@ saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
     newJob.jobName = "entrepreneur";
     newJob.intellectRequirement = 80;
     newJob.salary = 125;
+    // newJob.itemRequirement = {"computer", "phone", "house", "shoes"};
+    // newJob.skillsRequirement = {"finance", "university"};
     toAppend.jobList.push_back(newJob);
 
     newJob.jobName = "programmer";
     newJob.intellectRequirement = 125;
+    // newJob.itemRequirement = {"computer", "server", "phone", "house", "shoes"};
+    // newJob.skillsRequirement = {"IT", "highschool"};
     newJob.salary = 250;
     toAppend.jobList.push_back(newJob);
 
     newJob.jobName = "garbage man";
     newJob.intellectRequirement = 5;
+    // newJob.itemRequirement = {"shoes"};
     newJob.salary = 25;
     toAppend.jobList.push_back(newJob);
 
     newJob.jobName = "Dish washer";
     newJob.intellectRequirement = 15;
+    // newJob.itemRequirement = {"apartment", "shoes"};
     newJob.salary = 50;
     toAppend.jobList.push_back(newJob);
 
@@ -78,6 +90,11 @@ saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
     newJob.intellectRequirement = 15;
     newJob.salary = 55;
     toAppend.jobList.push_back(newJob);
+
+    // newJob.jobName = "cooking";
+
+
+    return toAppend;
 };
 
 bool saveGame::checkSave()
