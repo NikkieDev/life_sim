@@ -26,7 +26,7 @@ class saveTypes
             std::string jobName;
             float salary;
             int intellectRequirement;
-            std::vector<std::string> skillsRequirement;
+            std::vector<Skill> skillsRequirement;
         };
         struct saveData
         {

@@ -34,6 +34,12 @@ saveTypes::saveData saveGame::initializePets(saveTypes::saveData toAppend)
 
     return toAppend;
 }
+saveTypes::saveData saveGame::initializeSkills(saveTypes::saveData toAppend)
+{
+    saveTypes::Skill newSkill;
+
+    
+}
 saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
 {
     saveTypes::Job newJob;
@@ -61,8 +67,18 @@ saveTypes::saveData saveGame::initializeJobs(saveTypes::saveData toAppend)
     newJob.jobName = "call center";
     newJob.intellectRequirement = 30;
     newJob.salary = 75;
-    toAppend.jobList.push_back(newJob)
-}
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "Politician";
+    newJob.intellectRequirement = 175;
+    newJob.salary = 500;
+    toAppend.jobList.push_back(newJob);
+
+    newJob.jobName = "cashier";
+    newJob.intellectRequirement = 15;
+    newJob.salary = 55;
+    toAppend.jobList.push_back(newJob);
+};
 
 bool saveGame::checkSave()
 {
@@ -88,6 +104,7 @@ void saveGame::newSave(std::string name)
 
     saveObj = this->initializeItems(saveObj);
     saveObj = this->initializePets(saveObj);
+    saveObj = this->initializeJobs(saveObj);
 
     save(saveObj);
     return;
