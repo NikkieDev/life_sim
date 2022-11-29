@@ -12,6 +12,7 @@ void playerClass::eat()
     
     this->saveObj.save(this->load);
 }
+
 void playerClass::rest()
 {
     int increment;

@@ -12,5 +12,4 @@
 * Android port (C++, GUI)
 * Unix port (C++, GUI)
 
-
 ###### NikkieDev Software
