@@ -1,4 +1,5 @@
 #include "save.h"
+#include <algorithm>
 
 class playerClass
 {
@@ -9,5 +10,5 @@ class playerClass
         void eat();
         void rest();
         void work();
-        int steal();
+        void steal();
 };

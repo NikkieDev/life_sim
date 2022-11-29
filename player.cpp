@@ -25,3 +25,13 @@ void playerClass::rest()
     
     this->saveObj.save(this->load);
 }
+void playerClass::steal()
+{
+    float increment;
+
+    return;
+}
+void playerClass::work()
+{
+    
+}

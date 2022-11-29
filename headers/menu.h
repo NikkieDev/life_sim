@@ -6,7 +6,7 @@
 class menuClass
 {
     private:
-        std::vector<std::string> catMenu = {"Eat", "Rest" "Work", "Shop", "Skills"};
+        std::vector<std::string> catMenu = {"Eat", "Rest", "Work", "Shop", "Skills"};
     public:
         void showHome();
         void showWork();
